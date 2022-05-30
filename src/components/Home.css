@@ -1,0 +1,45 @@
+.navbar{
+    background-color: #15133c;
+}
+a{
+    cursor: pointer;
+}
+.footer{
+    position: sticky;
+    top:100%;
+    padding: 16px 8px;
+    height: 110px;
+    margin:0px;
+    background-color: #15133c; 
+}
+a{
+    text-decoration: none;
+    color: white;
+    padding: 0px 5px;
+}
+i{
+    padding: 0px 10px;
+}
+.description{
+    background-color: #efefef;
+    padding: 60px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+}
+.card{
+    width:200px;
+    height:200px;
+    border:none;
+}
+.modules{
+    display: flex;
+    justify-content: center;
+}
+.card a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+.card a:hover{
+    color: #fff;
+}
