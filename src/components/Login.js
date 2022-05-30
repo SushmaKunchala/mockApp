@@ -1,15 +1,62 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import React,{useEffect,useState,useCallback} from "react";
 import { Nav, NavItem, NavLink } from "reactstrap";
 
 
 function Login() {
 
-    const {register,handleSubmit,formState:{errors}}=useForm()
+    //const [data,setData]=useState([]);
+
+    const {register,handleSubmit,formState:{errors}}=useForm();
 
     const onFormSubmit=(obj)=>{
-        console.log(obj)
+      axios.post("http://localhost:5000/logindetails/",obj)
+      .then(function(response) {
+         if(response.data===true)
+         {
+             console.log("Logged in");
+         }
+         else{
+             console.log("User Not present");
+         }
+      })
+      .catch(function(error) {
+         console.log(error);
+      });
+       
     }
+    /*useEffect(async()=>{
+        try{
+            const data1= await axios.get("http://localhost:5000/getdata/");
+            setData(data);
+            console.log(data1.data);
+        }
+        catch(error)
+        {
+            console.log(error)
+        }
+    },[setData])*/
+
+    /*const fetchData=useCallback(async ()=>{
+        try{
+            const data1=axios.get("http://localhost:5000/getdata/");
+            setData(data1.data);
+       }
+       catch(error)
+       {
+           console.log(error)
+       }  
+    },[setData]);
+
+    useEffect(()=>{
+        fetchData();
+        console.log(data);
+    },[fetchData]);*/
+
     return ( 
+        <div>
+       
 
         <div className="form"> 
 
@@ -53,6 +100,7 @@ function Login() {
     </NavItem>
     </Nav>
 
+           </div>
            </div>
            
      );
