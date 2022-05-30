@@ -1,27 +1,31 @@
 import React from 'react'
-
+import {Row,Col,Container,Navbar,Nav,Button,NavDropdown} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 function Home() {
     
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark">
-        <div className="container-fluid">
-            <a className="navbar-brand">Key Education Foundation</a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#links">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="links">
-                <div className="navbar-nav ms-auto">
-                    <a className="nav-link">Home</a>
-                    <a className="nav-link">Test Link</a>
-                    <a className="nav-link">Profile</a>
-                    <a className="nav-link">Queries</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <img src="edu.avif" alt="" width="100%" height="420px"/>
+     
+<div>
+     <Navbar bg="light" expand="lg">
+  <Container>
+    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+       <Link to="Login"> <Nav.Link href="#link">Login</Nav.Link></Link>
+        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+<img src="edu.avif" alt="" width="100%" height="420px"/>
 
     <div className="text-center description mb-4">
         <h1 className="title mb-4">OUR VISION</h1>
@@ -37,22 +41,8 @@ function Home() {
             <button className="btn btn-dark"><a href="#"> Modules <i className='fas fa-arrow-right'></i></a></button>
         </div>
     </div>
-
-    <div className="container-fluid footer mt-5">
-        <div className="row">
-            <div className="col-lg-6">
-                <h6 style="color: white;">Key Education Foundation</h6>
-            </div>
-            <div className="col-lg-4"></div>
-            <div className="col-lg-2">
-                <a href="#"><i className="fa fa-facebook" style="color: white;"></i></a>
-                <a href="#"><i className="fa fa-whatsapp" style="color: white;"></i></a>
-                <a href="#"><i className="fa fa-instagram" style="color: white;"></i></a>
-                <a href="#"><i className="fa fa-twitter" style="color: white;"></i></a>
-            </div>
-        </div>
-    </div>
-    </div>
+</div>
+    
   )
 }
 
