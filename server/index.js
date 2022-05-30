@@ -31,6 +31,16 @@ mc.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
     console.log("not connected to cloud",error)
 })
 
+app.get(function(req,res){
+    collectionObj.find().toArray()
+    .then(obj=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log('failed');
+    })
+})
+
 /*app.get("/",function(req,res){
     collectionObj.find().toArray()
     .then(obj=>{
