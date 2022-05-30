@@ -31,17 +31,13 @@ mc.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
     console.log("not connected to cloud",error)
 })
 
-app.get(function(req,res){
-    collectionObj.find().toArray()
-    .then(obj=>{
-        console.log(res);
-    })
-    .catch(error=>{
-        console.log('failed');
-    })
-})
+/*app.post("/logindetails/",function(req,res){
+    console.log("reached");
+  
+})*/
 
-/*app.get("/",function(req,res){
+app.get("/getdata/",function(req,res){
+    console.log("reacged");
     collectionObj.find().toArray()
     .then(obj=>{
         res.send(obj)
@@ -50,7 +46,7 @@ app.get(function(req,res){
         console.log("error while getusers query",error);
     })
 })
-
+/*
 app.get("/getservices",function(req,res){
 
     collectionObj.find().toArray()
