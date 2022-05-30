@@ -16,7 +16,7 @@ app.use(cors(corsOptions))
 app.use(express.json());
 
 let mc = require("mongodb").MongoClient;
-const dburl='mongodb+srv://sushma7:7075748018@cluster0.shzv7.mongodb.net/mockdb';
+const dburl='mongodb+srv://sushma7:7075748018@cluster0.shzv7.mongodb.net/myfirstdb';
 let dbObj;
 let collectionObj;
 mc.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
@@ -31,26 +31,36 @@ mc.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
     console.log("not connected to cloud",error)
 })
 
-app.get(function(req,res){
-    collectionObj.find().toArray()
+app.post("/logindetails/",function(req,res){
+    collectionObj.findOne({$and:[{username:{$eq:req.body.username}},{password:{$eq:req.body.password}}]})
     .then(obj=>{
-        console.log(res);
-    })
-    .catch(error=>{
-        console.log('failed');
-    })
-})
-
-/*app.get("/",function(req,res){
-    collectionObj.find().toArray()
-    .then(obj=>{
-        res.send(obj)
+        if(obj===null)
+        {
+            res.send(false);
+        }
+        else{
+            res.send(true);
+        }
+        
     })
     .catch(error=>{
         console.log("error while getusers query",error);
     })
 })
 
+
+app.get("/getdata/",function(req,res){
+    
+    collectionObj.find().toArray()
+    .then(obj=>{
+        console.log(obj,"yes");
+        res.send(obj)
+    })
+    .catch(error=>{
+        console.log("error while getusers query",error);
+    })
+})
+/*
 app.get("/getservices",function(req,res){
 
     collectionObj.find().toArray()
